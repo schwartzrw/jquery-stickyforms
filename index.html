@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="RWSApps | StickyForms | jQuery Plugin : Automatically saves all form fields into cookies, and then autofills those values on any form that shares element IDs across your site." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>RWSApps | StickyForms | jQuery Plugin</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/schwartzrw/jquery-stickyforms">View on GitHub</a>
+
+          <h1 id="project_title">RWSApps | StickyForms | jQuery Plugin</h1>
+          <h2 id="project_tagline">Automatically saves all form fields into cookies, and then autofills those values on any form that shares element IDs across your site.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/schwartzrw/jquery-stickyforms/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/schwartzrw/jquery-stickyforms/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
+
+<p>StickyForms requires the jQuery library. Please <a href="http://jquery.com/download/">download</a> the jQuery library and include it in the </p> of your html page.
+
+<h2>
+<a name="default-settings" class="anchor" href="#default-settings"><span class="octicon octicon-link"></span></a>Default Settings</h2>
+
+<p>Below are the default settings for StickyForms. These settings will be thoroughly explained in the below sub-sections.</p>
+
+<pre><code>&lt;script type="text/javascript" language="javascript"&gt;
+$(function() {
+    $('#formID').StickyForm({
+        'debug': 'false',
+        'elementTypes'  : 'all',
+        'cookieLifetime': '60',
+        'disableOnSubmit': 'true',
+        'excludeElementIDs': '',
+        'scope' : 'global',
+        'disableIfGetSet' : ''
+    });
+});
+&lt;/script&gt;
+</code></pre>
+
+<h3>
+<a name="basic-implementation" class="anchor" href="#basic-implementation"><span class="octicon octicon-link"></span></a>Basic Implementation</h3>
+
+<p>A basic implementation of StickyForms using the default settings where all form values are saved globally.</p>
+
+<pre><code>&lt;script type="text/javascript" language="javascript"&gt;
+$(function() {
+    $('#formID').StickyForm();
+});
+&lt;/script&gt;
+</code></pre>
+
+<h3>
+<a name="controlling-sticky-element-types" class="anchor" href="#controlling-sticky-element-types"><span class="octicon octicon-link"></span></a>Controlling Sticky Element Types</h3>
+
+<p>With the elementTypes setter option, you can control which elements types have the sticky behavior.</p>
+
+<p><strong>Options:</strong> <a href="default%20is%20all">text,password,checkbox,radio,textarea,select-one,select-multiple,all</a></p>
+
+<pre><code>&lt;script type="text/javascript" language="javascript"&gt;
+$(function() {
+    $('#formID').StickyForm({
+        'elementTypes' : 'text,select-one,select-multiple'
+    });
+});
+&lt;/script&gt;
+</code></pre>
+
+<h3>
+<a name="exclude-specific-field-element-ids" class="anchor" href="#exclude-specific-field-element-ids"><span class="octicon octicon-link"></span></a>Exclude Specific Field Element IDs</h3>
+
+<p>With the excludeElementIDs setter option, you can exclude specific elements from the sticky behavior.</p>
+
+<p><strong>Option Syntax:</strong> [ID1,ID2]</p>
+
+<pre><code>&lt;script type="text/javascript" language="javascript"&gt;
+$(function() {
+    $('#formID').StickyForm({
+        'excludeElementIDs': 'sf_password'
+    });
+});
+&lt;/script&gt;
+</code></pre>
+
+<h3>
+<a name="controlling-cookie-lifetime-and-scope-behavior" class="anchor" href="#controlling-cookie-lifetime-and-scope-behavior"><span class="octicon octicon-link"></span></a>Controlling Cookie Lifetime and Scope Behavior</h3>
+
+<p>With the cookieLifetime setter option, you can control the lifetime (in days) of the sticky cookies.</p>
+
+<p>With the scope setter option, you can specify if you want the sticky values to be remembered strictly on a single form, or across all forms on your site.</p>
+
+<p><strong>cookieLifetime Syntax:</strong> [integer] in # days (default is 60)</p>
+
+<p><strong>Scope Options:</strong> <a href="default%20is%20global">single,global</a></p>
+
+<pre><code>&lt;script type="text/javascript" language="javascript"&gt;
+$(function() {
+    $('#formID').StickyForm({
+        'scope' : 'single',
+        'cookieLifetime': '30'
+    });
+});
+&lt;/script&gt;
+</code></pre>
+
+<h3>
+<a name="advanced-enable-debugging" class="anchor" href="#advanced-enable-debugging"><span class="octicon octicon-link"></span></a>Advanced: Enable Debugging</h3>
+
+<p>With the debug setter option, you can enable the debugging feature of StickyForms.</p>
+
+<p><strong>Options:</strong> <a href="default%20is%20false">true/false</a></p>
+
+<pre><code>&lt;script type="text/javascript" language="javascript"&gt;
+$(function() {
+    $('#formID').StickyForm({
+        'debug' : 'true'
+    });
+});
+&lt;/script&gt;
+</code></pre>
+
+<h3>
+<a name="advanced-disable-stickyforms-in-the-presence-of-a-query-string-get-parameter" class="anchor" href="#advanced-disable-stickyforms-in-the-presence-of-a-query-string-get-parameter"><span class="octicon octicon-link"></span></a>Advanced: Disable StickyForms in the presence of a Query String (GET parameter)</h3>
+
+<p>With the disableIfGetSet setter option, you can disable the StickyForms plugin in the presence of a specific query string variable.</p>
+
+<p><strong>Option Syntax:</strong> <a href="default%20is">GET variable</a></p>
+
+<pre><code>&lt;script type="text/javascript" language="javascript"&gt;
+$(function() {
+    $('#formID').StickyForm({
+        'disableIfGetSet' : 'var'
+    });
+});
+&lt;/script&gt;
+</code></pre>
+
+<h3>
+<a name="advanced-trigger-via-javascript" class="anchor" href="#advanced-trigger-via-javascript"><span class="octicon octicon-link"></span></a>Advanced: Trigger via Javascript</h3>
+
+<p>StickyForms can be automatically triggered via a Javascript function, providing support for forms that are processed via AJAX.</p>
+
+<pre><code>&lt;p&gt;&lt;input type="button" value="AJAX Save" onclick="$('#formID').StickyForm('process');" /&gt;&lt;/p&gt;
+&lt;!-- where formID is the ID of the form --&gt;
+
+&lt;script type="text/javascript" language="javascript"&gt;
+$(function() {
+    $('#formID').StickyForm();
+});
+&lt;/script&gt;
+</code></pre>
+
+<h3>
+<a name="advanced-disable-the-submit-button-while-processing" class="anchor" href="#advanced-disable-the-submit-button-while-processing"><span class="octicon octicon-link"></span></a>Advanced: Disable the Submit Button while Processing</h3>
+
+<p>With the disableOnSubmit setter option, you can control the disabled state of the Submit button while processing.</p>
+
+<p><strong>Options:</strong> <a href="default%20is%20true">true/false</a></p>
+
+<pre><code>&lt;script type="text/javascript" language="javascript"&gt;
+$(function() {
+    $('#formID').StickyForm({
+        'disableOnSubmit': 'false'
+    });
+});
+&lt;/script&gt;
+</code></pre>
+
+<p><a href="http://jquery.rwsapps.com/StickyForms">Browse full documentation site</a>.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">RWSApps | StickyForms | jQuery Plugin maintained by <a href="https://github.com/schwartzrw">schwartzrw</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
