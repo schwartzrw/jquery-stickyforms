@@ -1,0 +1,41 @@
+{
+    "name": "StickyForms",
+    "title": "StickyForms",
+    "description": "Automatically saves all form fields into cookies, and then autofills those values on any form that shares element IDs across your site.",
+    "keywords": [
+		"form",
+        "forms",
+		"sticky",
+		"prefill",
+		"populate"
+    ],
+    "version": "1.0.1",
+    "author": {
+        "name": "RWSApps",
+        "url": "http://jquery.rwsapps.com/StickyForms"
+    },
+    "maintainers": [
+        {
+            "name": "Ryan Schwartz",
+            "email": "contact@rwsapps.com",
+            "url": "http://jquery.rwsapps.com/"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/schwartzrw/jquery-stickyforms/blob/master/RWSApps%20MIT.rtf"
+        },
+        {
+            "type": "GNU",
+            "url": "https://github.com/schwartzrw/jquery-stickyforms/blob/master/RWSApps%20GNU.rtf"
+        }
+    ],
+    "bugs": "https://github.com/schwartzrw/jquery-stickyforms/issues",
+    "homepage": "http://jquery.rwsapps.com/StickyForms",
+    "docs": "http://jquery.rwsapps.com/StickyForms/documentation",
+    "download": "https://github.com/schwartzrw/jquery-stickyforms",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}
