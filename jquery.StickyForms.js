@@ -19,7 +19,7 @@
 				// Set defaults
 				var settings = {
 					'debug': 'false', // [true/false] Enable debugging
-					'elementTypes'	: 'all', // [text,password,checkbox,radio,textarea,select-one,select-multipe,all] separate element types with comma separated values (default is all)
+					'elementTypes'	: 'all', // [text,password,checkbox,radio,textarea,select-one,select-multiple,all] separate element types with comma separated values (default is all)
 					'cookieLifetime': '60', // [integer] number of days of cookie lifetime
 					'disableOnSubmit': 'true', // [true/false] disable submitting the form while the form is processing
 					'excludeElementIDs': '', // [ID1,ID2] exclude element IDs with comma separated values
